@@ -15,7 +15,7 @@
 		<div class="contenido_depto">
 			<h1><center>Administracion de Usuarios</center></h1></div><br>
 			<center>
-				<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#contenido">
+				<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal_usuario">
         			Nuevo Usuario
     			</button>
 			</center>
@@ -45,7 +45,7 @@
 						echo '<td> Telefono </td>';
 						echo '<td>'.$value['correo'].'</td>';
 						echo '<td>'.$value['departamento'].'</td>';
-						echo '<td><button id="'.$value['id_usuario'].'" class="btn btn-primary">Modificar</button></td>';
+						echo '<td><button id="'.$value['id_usuario'].'" name="'.$value['correo'].'" class="btn btn-primary modificar">Modificar</button></td>';
 						echo '<td><button id="'.$value['id_usuario'].'" name="'.$value['correo'].'" class="btn btn-danger eliminar">Eliminar</button></td>';
 						echo '</tr>';
 					}

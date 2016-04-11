@@ -17,9 +17,15 @@ class C_administrador extends CI_Controller {
 			$usuarios[$key]['correo'] = $value['correo'];
 			$usuarios[$key]['departamento'] = $value['nombre_departamento'];
 		}
+		$respuesta = $this->m_administrador->lista_depto();
+		$lista_depto = array();
+		foreach($respuesta as $key => $value){
+			$lista_depto[$key]['id_depto'] = $value['id_departamento'];
+			$lista_depto[$key]['departamento'] = $value['nombre_departamento'];
+		}
 		$this->load->view('generales/encabezado');
-		$this->load->view('administrador/usuarios',array('usuarios'=>$usuarios));
-		$this->load->view('administrador/nuevo_usuario');
+		$this->load->view('administrador/usuarios',array('usuarios'=>$usuarios, 'departamentos'=>$lista_depto));
+		$this->load->view('administrador/nuevo_usuario',array('departamentos'=>$lista_depto));
 		$this->load->view('generales/footer');
 	}
 	
@@ -28,28 +34,26 @@ class C_administrador extends CI_Controller {
 		$post = $this->input->post();
 		$id = $post['id'];
 		$correo = $post['name'];
-		echo $id;
-		/*
 		$result = $this->m_administrador->eliminar($id, $correo);
 		if ($result == $id) {
 			echo $id;
 		} else {
 			echo FALSE;
-		}*/
+		}
 	}
 		
-		
-	
 	public function nuevo_usuario(){
-			/*
-		$this->load->model('m_administrador');
-		$nombre = $this->input->post('usuario');
-		$correo = $this->input->post('email');
-		$contrasena1 = $this->input->post('contraseña1');
-		$contrasena2 = $this->input->post('contraseña2'); 
-		$departamento = $this->input->post('departamento');
-		
-		$resultado = $this->m_administrador->nuevo_usuario($nombre,$correo,$contrasena1,$contrasena2,$departamento);
-		*/
+		$post = $this->input->post();
+		$usuario = $post['usuario'];
+		$email = $post['email'];
+		$contrasena = $post['contrasena'];
+		$departamento = $post['departamento'];
+		$datos = array($usuario,$email,$contrasena,$departamento);
+		$respuesta = $this->m_administrador->registrar_usuario($datos);
+		if($respuesta == $email){
+			echo $respuesta;
+		}else{
+			echo FALSE;
+		}
 	}
 }

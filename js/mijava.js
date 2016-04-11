@@ -17,6 +17,7 @@
 	});
 */
 	$(document).ready(function(){
+		
 			$('.eliminar').on('click', function(e){
 				var id = $(this).attr('id');
 				var name = $(this).attr('name');
@@ -48,6 +49,60 @@
 				
 				e.preventDefault();
 				
+			});
+			
+			$('#b_new_user').click(function(e){
+				var correct_pass = 0;
+				var correct_depto = 0;
+				
+				var usuario = $('#usuario').val();
+				var email = $('#email').val();
+				var contrasena1 = $('#contrasena1').val();
+				var contrasena2 = $('#contrasena2').val();
+				var departamento = $('#departamento').val();
+			
+				if(contrasena1 != contrasena2){
+					alert("Las contraseñas deben coincidir");
+				}else{
+					correct_pass = 1;
+				}
+				
+				if(departamento == 0){
+					alert("Debe escoger un departamento");
+				}else{
+					correct_depto = 1;
+				}
+				console.log(correct_depto + " - " + correct_pass );
+				
+				if(correct_depto == 1 && correct_pass == 1){
+					var request;
+				
+					if(request){
+						request.abort();
+					}
+					
+					request = $.ajax({
+						url: CI_ROOT+"c_administrador/nuevo_usuario",
+						type: "POST",
+						data: "usuario="+usuario+"&email="+email+"&contrasena="+contrasena1+"&departamento="+departamento
+					});
+					
+					request.done(function (response, textStatus,jqXHR) {
+						console.log("response: " + response);
+						alert("Usuario Registrado Exitosamente");
+					});
+					
+					request.fail(function (jqXHR, textStatus, thrown) {
+						alert("Error al Registrar usuario");
+						console.log("Error: "+textstatus );
+					});
+					
+					request.always(function () {
+						console.log("Termino la ejecucion de registrar usuario");
+					});
+					
+					e.preventDefault();
+				}
 			});
 			
 		});

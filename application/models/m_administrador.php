@@ -22,5 +22,21 @@ class M_administrador extends CI_Model {
             return FALSE;
         }
     }
+    
+    public function registrar_usuario($a){
+        $SQL = ("INSERT INTO Usuarios (nombre_usuario,correo,contrasena,id_departamento) Values ('".$a[0]."','".$a[1]."','".$a[2]."','".$a[3]."')");
+        if($this->db->query($SQL)){
+            return $a[1];
+        }else{
+            return FALSE;
+        }
+        
+    }
+    
+    public function lista_depto(){
+        $SQL = ("Select id_departamento, nombre_departamento FROM Departamento");
+        $consulta = $this->db->query($SQL);
+        return $consulta->result_array();
+    }
 
 }
