@@ -20,12 +20,6 @@ class M_login extends CI_Model {
 		}
 	}
 
-	public function tabla_usuarios()
-	{
-		$this->db->select('id_usuario, nombre_usuario, correo, nombre_departamento');
-		$this->db->from('V_Usuarios');
-		$consulta = $this->db->get();
-		return $consulta->result_array();
-	}
+
 
 }

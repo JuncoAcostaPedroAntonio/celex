@@ -42,7 +42,7 @@
 				<div class="col-xs-3 col-xs-offset-5 col-md-3 col-md-offset-5 sesion">
 					<b>Nombre de usuario</b><br>
 					<b>Departamento</b><br>
-					<a class="sc" href="#"><b>Cerrar sesion</b></a>
+					<a class="sc" href="<?php echo base_url()?>general/index"><b>Cerrar sesion</b></a>
 				</div>
 				<div class="col-xs-1 col-md-1 imagen_user">
 					<img src="<?php echo base_url();?>images/user_img.JPG" width="100%">

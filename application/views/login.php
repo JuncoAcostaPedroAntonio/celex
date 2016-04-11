@@ -37,7 +37,7 @@
 		<div class="container-Logo col-md-3 col-md-offset-1">
 			<img src="<?php echo base_url();?>images/ipn-logo.png" width="100%" heigth="100%">
 		</div>
-		<form class="formulario col-md-4" action="<?php echo base_url();?>general/validar_login" method="post">
+		<form class="formulario col-md-4" action="<?php echo base_url();?>c_login/validar_login" method="post">
 			<h2 class="form-signin-heading"><center>Iniciar Sesion</center></h2>
 			<input type="text" name="correo" class="form-control" placeholder="correo" required autofocus>
 			<br>
