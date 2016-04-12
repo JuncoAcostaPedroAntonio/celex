@@ -1,9 +1,9 @@
-<div class="modal fade" id="modal_usuario" tabindex="-1" role="dialog" aria-labelledby="titulo_modal">
+<div class="modal fade" id="modal_editar" tabindex="-1" role="dialog" aria-labelledby="titulo_modal">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title text-center" id="titulo_modal">Nuevo Usuario</h4>
+                    <h4 class="modal-title text-center" id="titulo_modal">Editar Usuario</h4>
                 </div>
                 <div class="modal-body">
                     <form id="form_usuario" class="form-horizontal text-right" >
@@ -12,7 +12,7 @@
                                 <label for="usuario" class="control-label">Nombre Usuario:</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" id="usuario" class="form-control" placeholder="Nombre de Usario">
+                                <input type="text" id="usuario" class="form-control" placeholder="Nombre de Usario" value="pedrojunco">
                             </div>
                         </div>
                         <div class="form-group">

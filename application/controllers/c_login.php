@@ -15,6 +15,7 @@ class C_login extends CI_Controller {
 			if($resultado == 1){
 				redirect('c_administrador/inicio');
 			}else{
+				echo '<script type="text/javascript">alert("contraseña incorrecta");</script>';
 				redirect('general/index');
 			}
 		}

@@ -8,7 +8,7 @@ class M_administrador extends CI_Model {
 
     public function tabla_usuarios()
 	{
-		$this->db->select('id_usuario, nombre_usuario, correo, nombre_departamento');
+		$this->db->select('id_usuario, nombre_usuario, correo, telefono, nombre_departamento');
 		$this->db->from('V_Usuarios');
 		$consulta = $this->db->get();
 		return $consulta->result_array();
@@ -24,13 +24,12 @@ class M_administrador extends CI_Model {
     }
     
     public function registrar_usuario($a){
-        $SQL = ("INSERT INTO Usuarios (nombre_usuario,correo,contrasena,id_departamento) Values ('".$a[0]."','".$a[1]."','".$a[2]."','".$a[3]."')");
+        $SQL = ("INSERT INTO Usuarios (nombre_usuario,correo,telefono,contrasena,id_departamento) Values ('".$a[0]."','".$a[1]."','".$a[2]."','".$a[3]."','".$a[4]."')");
         if($this->db->query($SQL)){
             return $a[1];
         }else{
             return FALSE;
         }
-        
     }
     
     public function lista_depto(){

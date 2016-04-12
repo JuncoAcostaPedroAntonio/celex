@@ -14,6 +14,7 @@ class C_administrador extends CI_Controller {
 		foreach ($respuesta as $key => $value) {
 			$usuarios[$key]['id_usuario'] = $value['id_usuario'];
 			$usuarios[$key]['nombre'] = $value['nombre_usuario'];
+			$usuarios[$key]['telefono'] = $value['telefono'];
 			$usuarios[$key]['correo'] = $value['correo'];
 			$usuarios[$key]['departamento'] = $value['nombre_departamento'];
 		}
@@ -26,6 +27,7 @@ class C_administrador extends CI_Controller {
 		$this->load->view('generales/encabezado');
 		$this->load->view('administrador/usuarios',array('usuarios'=>$usuarios, 'departamentos'=>$lista_depto));
 		$this->load->view('administrador/nuevo_usuario',array('departamentos'=>$lista_depto));
+		$this->load->view('administrador/editar_usuario');
 		$this->load->view('generales/footer');
 	}
 	
@@ -46,11 +48,12 @@ class C_administrador extends CI_Controller {
 		$post = $this->input->post();
 		$usuario = $post['usuario'];
 		$email = $post['email'];
+		$telefono = $post['telefono'];
 		$contrasena = $post['contrasena'];
 		$departamento = $post['departamento'];
-		$datos = array($usuario,$email,$contrasena,$departamento);
+		$datos = array($usuario,$email,$telefono,$contrasena,$departamento);
 		$respuesta = $this->m_administrador->registrar_usuario($datos);
-		if($respuesta == $email){
+		if($respuesta == $email1){
 			echo $respuesta;
 		}else{
 			echo FALSE;
