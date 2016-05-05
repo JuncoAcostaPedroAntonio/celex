@@ -37,5 +37,14 @@ class M_administrador extends CI_Model {
         $consulta = $this->db->query($SQL);
         return $consulta->result_array();
     }
-
+    
+    public function consulta_edit($id, $correo){
+		$this->db->select('id_usuario,nombre_usuario,correo,telefono,contrasena,id_departamento');
+		$this->db->from('Usuarios');
+		$this->db->where('id_usuario',$id);
+		$this->db->where('correo', $correo);
+		$consulta = $this->db->get();
+		return $consulta->result_array();
+		
+    }
 }

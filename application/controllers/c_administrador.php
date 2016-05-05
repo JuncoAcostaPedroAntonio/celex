@@ -25,9 +25,10 @@ class C_administrador extends CI_Controller {
 			$lista_depto[$key]['departamento'] = $value['nombre_departamento'];
 		}
 		$this->load->view('generales/encabezado');
+		$this->load->view('administrador/admin_ventanas');
 		$this->load->view('administrador/usuarios',array('usuarios'=>$usuarios, 'departamentos'=>$lista_depto));
 		$this->load->view('administrador/nuevo_usuario',array('departamentos'=>$lista_depto));
-		$this->load->view('administrador/editar_usuario');
+		$this->load->view('administrador/editar_usuario', array('departamentos'=>$lista_depto));
 		$this->load->view('generales/footer');
 	}
 	
@@ -44,6 +45,22 @@ class C_administrador extends CI_Controller {
 		}
 	}
 		
+		public function editar_user(){
+			$id = $this->input->post('id');
+			$respuesta = $this->m_administrador->consulta_edit($id);
+			$usuario = array();
+			foreach($respuesta as $key => $value){
+				$usuario[$key]['id'] = $value['id_usuario'];
+				$usuario[$key]['nombre'] = $value['nombre_usuario'];
+				$usuario[$key]['correo'] = $value['correo'];
+				$usuario[$key]['telefono'] = $value['telefono'];
+				$usuario[$key]['contrasena'] = $value['contrasena'];
+				$usuario[$key]['departamento'] = $value['id_departamento'];
+			}
+			
+		}
+		
+		
 	public function nuevo_usuario(){
 		$post = $this->input->post();
 		$usuario = $post['usuario'];
@@ -53,10 +70,33 @@ class C_administrador extends CI_Controller {
 		$departamento = $post['departamento'];
 		$datos = array($usuario,$email,$telefono,$contrasena,$departamento);
 		$respuesta = $this->m_administrador->registrar_usuario($datos);
-		if($respuesta == $email1){
+		if($respuesta == $email){
 			echo $respuesta;
 		}else{
 			echo FALSE;
 		}
+	}
+	
+	public function proceso(){
+		$this->load->view('generales/encabezado');
+		$this->load->view('administrador/admin_ventanas');
+		$this->load->view('administrador/proceso');
+		$this->load->view('generales/footer');
+	}
+	
+	public function datos_mod(){
+		$id = $this->input->post('id');
+		$correo = $this->input->post('name');
+		$respuesta = $this->m_administrador->consulta_edit($id, $correo);
+		$datos = array();
+		foreach($respuesta as $key => $value){
+				$datos[$key]['id'] = $value['id_usuario'];
+				$datos[$key]['nombre'] = $value['nombre_usuario'];
+				$datos[$key]['correo'] = $value['correo'];
+				$datos[$key]['telefono'] = $value['telefono'];
+				$datos[$key]['contrasena'] = $value['contrasena'];
+				$datos[$key]['departamento'] = $value['id_departamento'];
+			}
+		echo json_encode($datos);
 	}
 }

@@ -12,10 +12,17 @@ class General extends CI_Controller {
 		$this->load->view('login');
 	}
 
-	function ramon(){
+	function insertar(){
 		$this->load->view('generales/encabezado');
 		$this->load->view('interfaces/inser_estud');
-		//$this->load->view('generales/footer');
+		$this->load->view('generales/footer');
+	}
+	
+	function editar_a(){
+		$this->load->view('generales/encabezado');
+		$this->load->view('administrador/editar_alumno');
+		$this->load->view('generales/footer');
+		
 	}
 	
 }

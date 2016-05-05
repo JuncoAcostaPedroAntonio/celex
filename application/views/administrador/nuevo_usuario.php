@@ -1,4 +1,4 @@
-<div class="modal fade" id="modal_usuario" tabindex="-1" role="dialog" aria-labelledby="titulo_modal">
+<div class="modal fade" id="modal_usuario" role="dialog" aria-labelledby="titulo_modal">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -6,13 +6,13 @@
                     <h4 class="modal-title text-center" id="titulo_modal">Nuevo Usuario</h4>
                 </div>
                 <div class="modal-body">
-                    <form id="form_usuario" class="form-horizontal text-right" >
+                    <form id="form_usuario" name="form_ns" class="form-horizontal text-right">
                         <div class="form-group">
                             <div class="col-sm-4">
                                 <label for="usuario" class="control-label">Nombre Usuario:</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" id="usuario" class="form-control" placeholder="Nombre de Usario">
+                                <input type="text" id="usuario" class="form-control" placeholder="Nombre de Usario" required autofocus>
                             </div>
                         </div>
                         <div class="form-group">
@@ -28,7 +28,7 @@
                                 <label for="telefono" class="control-label">Telefono:</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="phonenumber" id="telefono" class="form-control" placeholder="6622000000" maxlength="10">
+                                <input type="phonenumber" id="telefono" class="form-control" placeholder="6221252301" maxlength="10" minlength="10">
                             </div>
                         </div>
                         <div class="form-group">

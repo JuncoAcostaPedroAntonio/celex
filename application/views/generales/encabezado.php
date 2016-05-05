@@ -1,3 +1,4 @@
+
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -7,6 +8,15 @@
 	<script type="text/javascript" src="<?php echo base_url();?>js/jquery.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>js/mijava.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
+	<script type="text/javascript" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	
+	<script type="text/javascript" src="<?php echo base_url();?>alertify/lib/alertify.js"></script>
+	<link rel="stylesheet" href="<?php echo base_url();?>alertify/themes/alertify.core.css" />
+	<link rel="stylesheet" href="<?php echo base_url();?>alertify/themes/alertify.default.css" />
 	<style type="text/css">
 	.encabezado {
 		background: #711D3E;

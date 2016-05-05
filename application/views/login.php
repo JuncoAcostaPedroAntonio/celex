@@ -7,6 +7,9 @@
 	<script type="text/javascript" src="<?php echo base_url();?>js/jquery.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>js/mijava.js"></script>
+	<script type="text/javascript" src="<?php echo base_url();?>alertify/lib/alertify.js"></script>
+	<link rel="stylesheet" href="<?php echo base_url();?>alertify/themes/alertify.core.css" />
+	<link rel="stylesheet" href="<?php echo base_url();?>alertify/themes/alertify.default.css" />
 	<style type="text/css">
 	body {
 		background: #711D3E;
@@ -33,7 +36,6 @@
 	</div>
 	<br><br><br><br>
 	<div class="container col-md-12 contenedor-gral">
-		
 		<div class="container-Logo col-md-3 col-md-offset-1">
 			<img src="<?php echo base_url();?>images/ipn-logo.png" width="100%" heigth="100%">
 		</div>
@@ -44,6 +46,7 @@
 			<input type="password" name="contrasena" class="form-control" placeholder="contraseña" required>
 			<br>
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+			<!--<button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>->
 			<!--<a class="btn btn-lg btn-primary btn-block" href="<?php echo base_url(); ?>general/inicio">Entrar</a>-->
 		</form>
 		<div class="container-Logo col-md-3">
