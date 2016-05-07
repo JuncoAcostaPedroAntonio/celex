@@ -8,8 +8,12 @@ cambios "version 1.7"
     
 cambios "version 1.8"
     * Se crearon botones para que el administrador pueda navegar entre los distintos departamentos.
-    * Se agregaron los departamentos Control escolar y departamento de administracion.
+    * Se agregaron los departamentos Control escolar y departamento de administración.
         * Control escolar: Registrar alumnos y modificar
-        * Administracion:  Registrar pagos.
+        * Administración:  Registrar pagos.
     * Se agrego nuevo diseño a la manera de mostrar las funciones de cada departamento.
     * Se arreglo el problema para traer los datos que seran modificados de los usuarios, alumnos, y pagos.
+    
+cambios "version 1.9"
+    * Nueva barra de navegación, con botones con funcionalidad de dropdown.
+    * Funcion Eliminar Alumno para Control Escolar.

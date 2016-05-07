@@ -99,4 +99,5 @@ class C_administrador extends CI_Controller {
 			}
 		echo json_encode($datos);
 	}
+	
 }

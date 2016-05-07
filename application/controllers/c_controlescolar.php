@@ -22,6 +22,35 @@ class C_controlescolar extends CI_Controller {
 	    $this->load->view('generales/encabezado');
 		$this->load->view('administrador/admin_ventanas');
 		$this->load->view('control_escolar/control_escolar',array('alumnos'=>$alumnos));
+		$this->load->view('control_escolar/editar_alumno');
 		$this->load->view('generales/footer');
 	}
+	
+	public function eliminar_alumno(){
+		$id = $this->input->post('id');
+		$correo = $this->input->post('correo');
+		$result = $this->m_controlescolar->eliminar($id, $correo);
+		if($result == $id){
+			echo $id;
+		}else{
+			echo 'Error';
+		}
+	}
+	
+	public function datos_alumno(){
+		$id = $this->input->post('id');
+		$correo = $this->input->post('correo');
+		$respuesta = $this->m_administrador->consulta_edit($id, $correo);
+		$datos = array();
+		foreach($respuesta as $key => $value){
+				$datos[$key]['id'] = $value['id_usuario'];
+				$datos[$key]['nombre'] = $value['nombre_usuario'];
+				$datos[$key]['correo'] = $value['correo'];
+				$datos[$key]['telefono'] = $value['telefono'];
+				$datos[$key]['contrasena'] = $value['contrasena'];
+				$datos[$key]['departamento'] = $value['id_departamento'];
+			}
+		echo json_encode($datos);
+	}
+	
 }

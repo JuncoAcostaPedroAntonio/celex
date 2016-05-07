@@ -1,4 +1,4 @@
-<div class="modal fade" id="modal_editar" tabindex="-1" role="dialog" aria-labelledby="titulo_editar">
+<div class="modal fade" id="modal_editaralumno" role="dialog" aria-labelledby="titulo_editar">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -113,7 +113,7 @@
                         </div>
                         <div class="text-center">
                             <input id="b_edit_user" type="button" class="btn btn-primary" Value="Guardar">
-                            <button type="reset" class="btn btn-warning">Limpiar</button>
+                            <button type="reset" class="btn btn-warning">Restablecer</button>
                         </div>
                     </form>
                 </div>

@@ -1,4 +1,3 @@
-
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -26,7 +25,6 @@
 		margin-top: 10px;
 		margin-bottom: 10px;
 	}
-	
 	.sesion{
 		text-align: right;
 	}
@@ -49,7 +47,10 @@
 				<div class="col-xs-3 col-md-3 logo-celex">
 					<img src="<?php echo base_url();?>images/ipn-logo3.jpg" heigth="100%">
 				</div>
-				<div class="col-xs-3 col-xs-offset-5 col-md-3 col-md-offset-5 sesion">
+				<div class="col-xs-6 col-md-6 botones">
+					
+				</div>
+				<div class="col-xs-2 col-md-2 sesion">
 					<b>Nombre de usuario</b><br>
 					<b>Departamento</b><br>
 					<a class="sc" href="<?php echo base_url()?>general/index"><b>Cerrar sesion</b></a>

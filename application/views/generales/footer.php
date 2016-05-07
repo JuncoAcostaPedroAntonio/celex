@@ -1,3 +1,4 @@
+</body>
 <br><br>
 <footer id="ce-footer" align="center" style="background-color:#A7A7A7;">
 	<div class="container">
@@ -18,3 +19,4 @@
 		</div>
 	</div>
 </footer>
+</html>

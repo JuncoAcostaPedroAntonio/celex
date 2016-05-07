@@ -18,6 +18,7 @@
 */
 	$(document).ready(function(){
 		
+			//boton eliminar usuario para administrador
 			$('.eliminar').on('click', function(e){
 				var id = $(this).attr('id');
 				var name = $(this).attr('name');
@@ -52,8 +53,8 @@
 				
 			});
 			
+			//boton modificar usuarios para administrador 
 			$('.modificar').on('click', function(e){
-				
 				
 				var id = $(this).attr('id');
 				var name = $(this).attr('name');
@@ -72,16 +73,11 @@
 						var obj = jQuery.parseJSON(dato);
 						var data = obj[0];
 						console.log(obj[0]['nombre']);
-						var e_usuario = document.querySelector('#e_usuario');
-						var e_email = document.querySelector('#e_email');
-						var e_telefono = document.querySelector('#e_telefono');
-						var e_contrasena = document.querySelector('#e_contrasena');
-						var e_departamento = document.querySelector('#e_departamento');
-						e_usuario.setAttribute('value',data.nombre);
-						e_email.setAttribute('value',data.correo);
-						e_telefono.setAttribute('value',data.telefono);
-						e_contrasena.setAttribute('value',data.contrasena);
-						e_departamento.setAttribute('value',data.departamento);
+						document.querySelector('#e_usuario').setAttribute('value',data.nombre);
+						document.querySelector('#e_email').setAttribute('value',data.correo);
+						document.querySelector('#e_telefono').setAttribute('value',data.telefono);
+						document.querySelector('#e_contrasena').setAttribute('value',data.contrasena);
+						document.querySelector('#e_departamento').setAttribute('value',data.departamento);
 						$('#modal_editar').modal('show');
 					}
 				});
@@ -90,6 +86,7 @@
 				
 			});
 			
+			//boton para agregar nuevo usuario del administrador
 			$('#b_new_user').click(function(e){
 				var correct_tel=0;
 				var correct_con1=0;
@@ -128,9 +125,6 @@
 						
 					}
 				}
-				
-
-
 				console.log(correct_depto + " - " + correct_pass );
 				
 				if(correct_depto == 1 && correct_pass == 1 && correct_tel ==1){
@@ -165,28 +159,71 @@
 				}
 			});
 			
+			//funcion para cargar las paginas de los botones administrador
 			$('.cargar').click(function(){
 				var id = $(this).attr('id');
 				switch(id){
-					case '1':
+					case '1.1':
 					location.assign(CI_ROOT+'c_administrador/inicio');
 					break;
-					case '2':
+					case '2.1':
 						console.log('hola mundo');
 					location.assign(CI_ROOT+'c_controlescolar/inicio');
 					break;
-					case '3':
+					case '2.2':
+					location.assign(CI_ROOT+'c_administrador/proceso');
+					break;
+					case '3.1':
 					location.assign(CI_ROOT+'c_administracion/inicio');
 					break;
-					case '4':
+					case '3.2':
+						console.log('hola mundo');
+					location.assign(CI_ROOT+'c_administrador/proceso');
+					break;
+					case '4.1':
 						console.log('entra al 4');
 					location.assign(CI_ROOT+'c_administrador/proceso');		
 					break;
+					
 					default:
+					console.log("id"+id);
 					alert('Error al cargar la vista, favor de hacer clic de nuevo');
 				}
 			});
 			
+			//metodo para eliminar los alumnos de control escolar
+			$('.eliminar_ce').on('click', function(e){
+				var id = $(this).attr('id');
+				var correo = $(this).attr('name');
+				var request;
+				
+				if(request){
+					request.abort();
+				}
+				request = $.ajax({
+					url: CI_ROOT+"c_controlescolar/eliminar_alumno",
+					type: "POST",
+					data: "id="+id+"&correo="+correo
+				});
+				
+				request.done(function (response, textStatus,jqXHR) {
+					console.log("response: " + response);
+					$('#tr'+response).html("");
+					alertify.ok("Eliminado Correctamente");
+					// alert("Registro Eliminado Correctamente");
+				});
+				
+				request.fail(function (jqXHR, textStatus, thrown) {
+					console.log("Error: "+textstatus );
+				});
+				
+				request.always(function () {
+					console.log("Termino la ejecucion de ajax");
+				});
+				
+				e.preventDefault();
+				
+			});
 			
 		});
 

@@ -55,8 +55,8 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            <input id="b_editar_user" type="button" class="btn btn-primary" Value="Guardar">
-                            <button type="reset" class="btn btn-warning">Limpiar</button>
+                            <button id="b_editar_user" class="btn btn-primary">Guardar Cambios</button>
+                            <button type="reset" class="btn btn-warning">Restablecer</button>
                         </div>
                     </form>
                 </div>
