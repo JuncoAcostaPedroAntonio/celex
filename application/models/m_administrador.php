@@ -47,4 +47,14 @@ class M_administrador extends CI_Model {
 		return $consulta->result_array();
 		
     }
+    
+    public function modificar_usuario($a){
+        $SQL = ("UPDATE Usuarios SET nombre_usuario='".$a[1]."',correo='".$a[2]."',telefono='".$a[3]."',contrasena='".$a[4]."',id_departamento='".$a[5]."' WHERE id_usuario='".$a[0]."';");
+        if($this->db->query($SQL)){
+            return $a[2];
+        }else{
+            return FALSE;
+        }
+    }
+    
 }

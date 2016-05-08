@@ -45,22 +45,6 @@ class C_administrador extends CI_Controller {
 		}
 	}
 		
-		public function editar_user(){
-			$id = $this->input->post('id');
-			$respuesta = $this->m_administrador->consulta_edit($id);
-			$usuario = array();
-			foreach($respuesta as $key => $value){
-				$usuario[$key]['id'] = $value['id_usuario'];
-				$usuario[$key]['nombre'] = $value['nombre_usuario'];
-				$usuario[$key]['correo'] = $value['correo'];
-				$usuario[$key]['telefono'] = $value['telefono'];
-				$usuario[$key]['contrasena'] = $value['contrasena'];
-				$usuario[$key]['departamento'] = $value['id_departamento'];
-			}
-			
-		}
-		
-		
 	public function nuevo_usuario(){
 		$post = $this->input->post();
 		$usuario = $post['usuario'];
@@ -98,6 +82,26 @@ class C_administrador extends CI_Controller {
 				$datos[$key]['departamento'] = $value['id_departamento'];
 			}
 		echo json_encode($datos);
+	}
+
+	public function modificar_usuario(){
+		$id = $this->input->post('id');
+		$usuario = $this->input->post('usuario');
+		$email = $this->input->post('email');
+		$telefono = $this->input->post('telefono');
+		$contrasena = $this->input->post('contrasena');
+		$departamento = $this->input->post('departamento');
+		$datos = array($id,$usuario,$email,$telefono,$contrasena,$departamento);
+		$respuesta = $this->m_administrador->modificar_usuario($datos);
+		if($respuesta == $email){
+			echo $respuesta;
+		}else{
+			echo FALSE;
+		}
+		
+		
+		
+		
 	}
 	
 }

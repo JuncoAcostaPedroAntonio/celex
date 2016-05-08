@@ -9,7 +9,7 @@
                     <form id="form_usuario" name="form_us" class="form-horizontal text-right">
                         <div class="form-group">
                             <div class="col-sm-4">
-                                <label for="usuario" class="control-label">Nombre Usuario:</label>
+                                <label for="e_usuario" class="control-label">Nombre Usuario:</label>
                             </div>
                             <div class="col-sm-8">
                                 <input type="text" id="e_usuario" class="form-control" placeholder="Nombre de Usario" required autofocus>
@@ -17,7 +17,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-4">
-                                <label for="correo" class="control-label">Correo:</label>
+                                <label for="e_email" class="control-label">Correo:</label>
                             </div>
                             <div class="col-sm-8">
                                 <input type="email" id="e_email" class="form-control" placeholder="ejemplo@domino.com">
@@ -25,7 +25,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-4">
-                                <label for="telefono" class="control-label">Telefono:</label>
+                                <label for="e_telefono" class="control-label">Telefono:</label>
                             </div>
                             <div class="col-sm-8">
                                 <input type="phonenumber" id="e_telefono" class="form-control" placeholder="6221252301" maxlength="10" minlength="10">
@@ -33,15 +33,15 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-4">
-                                <label for="contrasena1" class="control-label">Contraseña:</label>
+                                <label for="e_contrasena" class="control-label">Contraseña:</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="password" id="e_contrasena" class="form-control" placeholder="Contraseña">
+                                <input type="text" id="e_contrasena" class="form-control" placeholder="Contraseña">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-4">
-                                <label for="departamento" class="control-label">Departamento</label>
+                                <label for="e_departamento" class="control-label">Departamento</label>
                             </div>
                             <div class="col-sm-8">
                                 <select class="form-control" id="e_departamento" >
@@ -55,7 +55,7 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            <button id="b_editar_user" class="btn btn-primary">Guardar Cambios</button>
+                            <button class="btn btn-primary b_editar_user" >Guardar Cambios</button>
                             <button type="reset" class="btn btn-warning">Restablecer</button>
                         </div>
                     </form>

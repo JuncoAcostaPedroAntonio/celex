@@ -72,12 +72,12 @@
 					success: function(dato){
 						var obj = jQuery.parseJSON(dato);
 						var data = obj[0];
-						console.log(obj[0]['nombre']);
+						document.querySelector('.b_editar_user').setAttribute('id',id);
 						document.querySelector('#e_usuario').setAttribute('value',data.nombre);
 						document.querySelector('#e_email').setAttribute('value',data.correo);
 						document.querySelector('#e_telefono').setAttribute('value',data.telefono);
 						document.querySelector('#e_contrasena').setAttribute('value',data.contrasena);
-						document.querySelector('#e_departamento').setAttribute('value',data.departamento);
+						document.getElementById("e_departamento").selectedIndex = data.departamento;
 						$('#modal_editar').modal('show');
 					}
 				});
@@ -125,6 +125,7 @@
 						
 					}
 				}
+				
 				console.log(correct_depto + " - " + correct_pass );
 				
 				if(correct_depto == 1 && correct_pass == 1 && correct_tel ==1){
@@ -167,26 +168,21 @@
 					location.assign(CI_ROOT+'c_administrador/inicio');
 					break;
 					case '2.1':
-						console.log('hola mundo');
 					location.assign(CI_ROOT+'c_controlescolar/inicio');
 					break;
 					case '2.2':
-					location.assign(CI_ROOT+'c_administrador/proceso');
+					location.assign(CI_ROOT+'c_controlescolar/inscripcion');
 					break;
 					case '3.1':
 					location.assign(CI_ROOT+'c_administracion/inicio');
 					break;
 					case '3.2':
-						console.log('hola mundo');
 					location.assign(CI_ROOT+'c_administrador/proceso');
 					break;
 					case '4.1':
-						console.log('entra al 4');
 					location.assign(CI_ROOT+'c_administrador/proceso');		
 					break;
-					
 					default:
-					console.log("id"+id);
 					alert('Error al cargar la vista, favor de hacer clic de nuevo');
 				}
 			});
@@ -225,6 +221,67 @@
 				
 			});
 			
+			//boton para modificar la informacion del usuario en administrador
+			$('.b_editar_user').click(function(e){
+				var correct_tel=0;
+				var correct_depto=0;
+				
+				var id = $(this).attr('id');
+				var usuario = $('#e_usuario').val();
+				var email = $('#e_email').val();
+				var telefono = $('#e_telefono').val();
+				var contrasena = $('#e_contrasena').val();
+				var departamento = $('#e_departamento').val();
+				
+				console.log(email);
+				if (usuario == "" || email == "" || telefono == "" || contrasena1 == "") {
+					alertify.error("Favor de llenar todos los Campos.");
+				}else {
+					
+					if(telefono.length!=10){
+						alertify.error("Ingrese un numero de telefono valido a 10 digitos");
+					}else{
+						correct_tel =1;
+						if(departamento == 0){
+							alertify.error("Seleccione el Departamento");
+						}else{
+							correct_depto = 1;
+						}
+					}
+				}
+				console.log(correct_depto + " - " + correct_tel );
+				if(correct_depto == 1 && correct_tel ==1){
+					var request;
+				
+					if(request){
+						request.abort();
+					}
+					
+					request = $.ajax({
+						url: CI_ROOT+"c_administrador/modificar_usuario",
+						type: "POST",
+						data: "id="+id+"&usuario="+usuario+"&email="+email+"&telefono="+telefono+"&contrasena="+contrasena+"&departamento="+departamento
+					});
+					
+					request.done(function (response, textStatus,jqXHR) {
+						console.log("response: " + response);
+						$('#modal_editar').modal('hide');
+						alertify.alert("Usuario Modificado Exitosamente");
+						location.reload();
+					});
+					
+					request.fail(function (jqXHR, textStatus, thrown) {
+						alertify.error("Error Al Modificar Datos, Intente De Nuevamente.");
+						location.reload();
+					});
+					
+					request.always(function () {
+						console.log("Termino la ejecucion de registrar usuario");
+					});
+					
+					e.preventDefault();
+				}
+			});
+			
 		});
 
-	

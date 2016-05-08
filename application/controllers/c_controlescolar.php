@@ -53,4 +53,11 @@ class C_controlescolar extends CI_Controller {
 		echo json_encode($datos);
 	}
 	
+	public function inscripcion(){
+		$this->load->view('generales/encabezado');
+		$this->load->view('administrador/admin_ventanas');
+		$this->load->view('control_escolar/inser_estud');
+		$this->load->view('generales/footer');
+	}
+	
 }
