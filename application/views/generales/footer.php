@@ -1,6 +1,7 @@
 </body>
 <br><br>
 <footer id="ce-footer" align="center" style="background-color:#A7A7A7;">
+	<br>
 	<div class="container">
 		<div class="row">
 		    <div class="col-sm-2">
@@ -18,5 +19,6 @@
 			</div>
 		</div>
 	</div>
+	<br>
 </footer>
 </html>

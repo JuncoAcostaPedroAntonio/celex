@@ -160,6 +160,7 @@
 				}
 			});
 			
+			
 			//funcion para cargar las paginas de los botones administrador
 			$('.cargar').click(function(){
 				var id = $(this).attr('id');
@@ -177,7 +178,7 @@
 					location.assign(CI_ROOT+'c_administracion/inicio');
 					break;
 					case '3.2':
-					location.assign(CI_ROOT+'c_administrador/proceso');
+					location.assign(CI_ROOT+'c_administracion/lista_pagos');
 					break;
 					case '4.1':
 					location.assign(CI_ROOT+'c_administrador/proceso');		
@@ -221,6 +222,8 @@
 				
 			});
 			
+			
+			
 			//boton para modificar la informacion del usuario en administrador
 			$('.b_editar_user').click(function(e){
 				var correct_tel=0;
@@ -249,7 +252,6 @@
 						}
 					}
 				}
-				console.log(correct_depto + " - " + correct_tel );
 				if(correct_depto == 1 && correct_tel ==1){
 					var request;
 				
@@ -281,6 +283,87 @@
 					
 					e.preventDefault();
 				}
+			});
+			
+			//traer informacion del alumno para mostrarla modal registro de pagos
+			$('.pagar_a').click(function(e){
+				
+				var id = $(this).attr('id');
+				var name = $(this).attr('name');
+				var request;
+				console.log(id +" "+ name);
+				if(request){
+					request.abort();
+				}
+				
+				request = $.ajax({
+					url: CI_ROOT+"c_administracion/info_pago",
+					type: "POST",
+					data: "id="+id+"&name="+name,
+					datatype: 'jsondata',
+					success: function(dato){
+						var obj = jQuery.parseJSON(dato);
+						var data = obj[0];
+						document.querySelector('.b_guardar_pago').setAttribute('id',id);
+						document.querySelector('#p_alumno').setAttribute('value',data.nombre);
+						document.querySelector('#p_email').setAttribute('value',data.correo);
+						document.querySelector('#p_grupo').setAttribute('value',data.grupo);
+						document.querySelector('#p_modulo').setAttribute('value',data.modulo);
+						document.querySelector('#p_nivel').setAttribute('value',data.nivel);
+						$('#modal_pago').modal('show');
+					}
+				});
+				
+				e.preventDefault();
+				
+			});
+			
+			//funcion para registrar los pagos en la base de datos
+			$('.b_guardar_pago').click(function(e){
+				var ban=0;
+				
+				
+				var id = $(this).attr('id');
+				var concepto = $('#p_descripcion').val();
+				var inversion = $('#p_inversion').val();
+				
+				if(concepto == "" || inversion == ""){
+					ban=0;
+				}else{
+					ban = 1;
+				}
+				
+				if(ban == 1){
+				var request;
+				
+					if(request){
+						request.abort();
+					}
+					
+					request = $.ajax({
+						url: CI_ROOT+"c_administracion/registro_pago",
+						type: "POST",
+						data: "id="+id+"&concepto="+concepto+"&inversion="+inversion
+					});
+					
+					request.done(function (response, textStatus,jqXHR) {
+						console.log("response: " + response);
+						$('#modal_pago').modal('hide');
+						alertify.alert("El Pago Se Registro Correctamente");
+						location.reload();
+					});
+					
+					request.fail(function (jqXHR, textStatus, thrown) {
+						alertify.error("Error Al Registrar El Pago, Intente De Nuevamente.");
+						location.reload();
+					});
+					
+					request.always(function () {
+						console.log("Termino la ejecucion de registrar pago");
+					});
+				
+				}
+				e.preventDefault();					
 			});
 			
 		});

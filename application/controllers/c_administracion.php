@@ -22,8 +22,50 @@ class C_administracion extends CI_Controller {
 		$this->load->view('generales/encabezado');
 		$this->load->view('administrador/admin_ventanas');
 		$this->load->view('administracion/administracion',array('alumnos'=>$alumnos));
+		$this->load->view('administracion/registro_pago');
 		$this->load->view('generales/footer');
 	}
 
+	public function lista_pagos(){
+		$respuesta = $this->m_administracion->lista_pagos();
+		$pagos = array();
+		foreach ($respuesta as $key => $value) {
+			$pagos[$key]['nombre'] = $value['nombre'];
+			$pagos[$key]['descripcion'] = $value['descripcion'];
+			$pagos[$key]['fecha'] = $value['fecha'];
+			$pagos[$key]['inversion'] = $value['inversion'];
+		}
+		$this->load->view('generales/encabezado');
+		$this->load->view('administrador/admin_ventanas');
+		$this->load->view('administracion/lista_pagos',array('pagos'=>$pagos));
+		$this->load->view('generales/footer');
+	}
+	
+	public function info_pago(){
+		$id = $this->input->post('id');
+		$correo = $this->input->post('name');
+		$respuesta = $this->m_administracion->info_alumno($id, $correo);
+		$datos = array();
+		foreach($respuesta as $key => $value){
+				$datos[$key]['nombre'] = $value['nombre'];
+				$datos[$key]['correo'] = $value['correo'];
+				$datos[$key]['grupo'] = $value['id_grupo'];
+				$datos[$key]['modulo'] = $value['modulo'];
+				$datos[$key]['nivel'] = $value['nivel'];
+			}
+		echo json_encode($datos);
+	}
+	
+	public function registro_pago(){
+		$id = $this->input->post('id');
+		$concepto = $this->input->post('concepto');
+		$inversion = $this->input->post('inversion');
+		$respuesta = $this->m_administracion->reg_pago($id, $concepto, $inversion);
+		if($respuesta == $id){
+			return $Respuesta;
+		}else{
+			return FALSE;
+		}
+	}
 }
 

@@ -15,12 +15,14 @@ class M_administrador extends CI_Model {
 	}
 
     public function eliminar($id,$correo){
+        return $id;
+        /*
         $SQL = ("DELETE FROM Usuarios WHERE id_usuario = '$id' AND correo = '$correo'");
         if($this->db->query($SQL)){
             return $id;
         }else{
             return FALSE;
-        }
+        }*/
     }
     
     public function registrar_usuario($a){

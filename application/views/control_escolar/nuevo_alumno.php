@@ -3,8 +3,9 @@
 		margin:3px;
 	}
 </style>
+<br>
 <div class="content">
-	<div class="container-fluid">
+	<div class="container">
 		<div class="panel panel-default">
 			<div class="panel panel-heading">
 				<b>Registrar Nuevo Estudiante</b>
@@ -12,53 +13,43 @@
 			<div class="panel-body">
 				<form id="nuevo_estud" accept-charset="utf-8" novalidate="novalidate">
 					<div class="row">
-						<div class="col-md-4">
+						<div class="col-md-6">
 							<div class="input-group">
 								<span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
-								<input type="text" class="form-control" placeholder="Nombre(s)">
+								<input type="text" class="form-control" placeholder="Nombre(s)  -  Apellido Paterno  -  Apellido Materno">
 							</div>
 						</div>
-						<div class="col-md-4">
+						<div class="col-md-3">
 							<div class="input-group">
-								<span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
-								<input type="text" class="form-control" placeholder="Apellido Paterno">
+								<span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-calendar"></i></span>
+								<input type="date" class="form-control" max="2005-12-31" placeholder="Fecha Nacimiento">
 							</div>
 						</div>
-						<div class="col-md-4">
+						<div class="col-md-3">
 							<div class="input-group">
 								<span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
-								<input type="text" class="form-control" placeholder="Apellido Materno">
+								<select class="form-control">
+									<option value="0">Sexo</option>
+									<option value="F">Femenino</option>
+									<option value="M">Masculino</option>
+								</select>
 							</div>
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-5">
-							<div class="input-group">
-								<span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-calendar"></i></span>
-								<input type="date" class="form-control" placeholder="Fecha Nacimiento">
-							</div>
-						</div>
-						<div class="col-md-5">
+						<div class="col-md-4">
 							<div class="input-group">
 								<span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
 								<input type="text" class="form-control" placeholder="RFC">
 							</div>
 						</div>
-						<div class="col-md-2">
-							<div class="input-group">
-								<span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
-								<input type="text" class="form-control" placeholder="Sexo">
-							</div>
-						</div>
-					</div>	
-					<div class="row">
-						<div class="col-md-6">
+						<div class="col-md-4">
 							<div class="input-group">
 								<span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-phone"></i></span>
 								<input type="text" class="form-control" placeholder="Telefono">
 							</div>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-4">
 							<div class="input-group">
 								<span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
 								<input type="varchar" class="form-control" placeholder="Email">
@@ -92,10 +83,24 @@
 								<input type="text" class="form-control" placeholder="Como se Entero">
 							</div>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-3">
 							<div class="input-group">
 								<span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
 								<input type="varchar" class="form-control" placeholder="Inversion">
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="input-group">
+								<span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
+								<select class="form-control">
+									<option value="0">Grupo</option>
+									<option value="1A">Ingles 1A</option>
+									<option value="2A">Ingles 2A</option>
+									<option value="1B">Ingles 1B</option>
+									<option value="2B">Ingles 2B</option>
+									<option value="1C">Ingles 1C</option>
+									<option value="2C">Ingles 2C</option>
+								</select>
 							</div>
 						</div>
 					</div>

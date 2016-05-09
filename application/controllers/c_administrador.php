@@ -98,10 +98,6 @@ class C_administrador extends CI_Controller {
 		}else{
 			echo FALSE;
 		}
-		
-		
-		
-		
 	}
 	
 }

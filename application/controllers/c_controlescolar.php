@@ -56,7 +56,7 @@ class C_controlescolar extends CI_Controller {
 	public function inscripcion(){
 		$this->load->view('generales/encabezado');
 		$this->load->view('administrador/admin_ventanas');
-		$this->load->view('control_escolar/inser_estud');
+		$this->load->view('control_escolar/nuevo_alumno');
 		$this->load->view('generales/footer');
 	}
 	

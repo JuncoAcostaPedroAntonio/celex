@@ -21,3 +21,7 @@ cambios "version 1.9"
 Cambios "version 1.9.1"
     * La función editar para modificar usuarios en la ventana de administrador funciona correctamento.
     * Se habilito la ventana inscripción alumnos para control escolar.
+    
+Cambios "version 2.0"
+    * Se habilito la Vista Lista de pagos.
+    * Se anadio la función para realizar los pagos de los alumnos para la administración.
