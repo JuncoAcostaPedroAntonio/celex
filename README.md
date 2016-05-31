@@ -25,3 +25,17 @@ Cambios "version 1.9.1"
 Cambios "version 2.0"
     * Se habilito la Vista Lista de pagos.
     * Se anadio la función para realizar los pagos de los alumnos para la administración.
+    
+Cambios "version 2.1"
+    * Se añadio la funcion para modificar alumnos.
+    * Se arreglaron errores en general.
+    * Los pagos se ven reflejado en las cuentas cuando son registrados y cuando son eliminados en caso de registrarlo erroneamente.
+    * Se habilito la funcion para registrar alumbnos correctamente.
+    * Se añadieron sesiones.
+    * Se añadieron permisos a usuarios para delimitar funciones en el sistema.
+    * Se agregaron filtros en la lista de alumnos en control escolar y administración.
+    * Se agregaron mensajes de usabilidad al eliminar, agregar, o modificar. (cualquier cambio importante).
+    * Se agregaron mensajes de usabilidad en el login.
+    
+    
+    

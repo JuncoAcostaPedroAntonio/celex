@@ -16,22 +16,39 @@
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h4 class="panel-title">
-					<b>Lista de Alumnos</b>
+					<b>Lista de alumnos</b>
 				</h4>
 			</div>
 			<div class="panel-body">
 				<div Class="tabla">
 					<center>
+						<div class="row">
+						<div class="col-md-offset-1 col-md-3">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+								<select class="form-control" id="s_estado" onchange="tabla_administracion()">
+									<option value="0">Todos los alumnos</option>
+										<?php 
+										foreach ($estados as $value) {
+												echo "<option value=".$value['id'].">".$value['estado']."</option>";
+											}
+										?>
+								</select>
+							</div>
+						</div>
+					</div>
+					<hr>
 						<table id="t_alumnos" class="table table-condensed table-hover display" cellspacing="0" width="100%">
 							<thead>
 								<tr>
 									<th>Id</th>
 									<th>Nombre</th>
 									<th>Grupo</th>
-									<th>Modulo</th>
+									<th>Módulo</th>
 									<th>Nivel</th>
 									<th>Correo</th>
 									<th>Telefono</th>
+									<th>Adeudo</th>
 									<th>Pagar</th>
 								</tr>
 							</thead>
@@ -47,7 +64,8 @@
 									echo '<td align="center">'.$value['nivel'].'</td>';
 									echo '<td>'.$value['correo'].'</td>';
 									echo '<td>'.$value['telefono'].'</td>';
-									echo '<td><center><button id="'.$value['id_alumno'].'" name="'.$value['correo'].'" class="btn btn-success pagar_a"><i class="fa fa-usd"></button></center></td>';
+									echo '<td align="center"> $'.$value['cuenta'].'</td>';
+									echo "<td><center><button id='".$value['id_alumno']."' name='".$value['correo']."' class='btn btn-success' onClick='pagar_a(this.id,this.name)'><i class='fa fa-usd'></button></center></td>";
 									echo '</tr>';
 								}
 								?>

@@ -21,17 +21,19 @@
 							    <th>Descripción</th>
 							    <th>Fecha</th>
 								<th>Inversión</th>
+								<th>Eliminar</th>
 							</tr>
 						</thead>
 						<tbody id="tbody_user">
 					    	<?php
 						    	foreach ($pagos as $value)
 								{
-									echo '<tr>';
+									echo '<tr id="tr'.$value['id'].'">';
 									echo '<td>'.$value['nombre'].'</td>';
 									echo '<td>'.$value['descripcion'].'</td>';
 									echo '<td>'.$value['fecha'].'</td>';
 									echo '<td>$'.$value['inversion'].'</td>';
+									echo '<td><center><button id="'.$value['id'].'" class="btn btn-danger eliminar_pago"><i class="glyphicon glyphicon-remove"></button></center></td>';
 									echo '</tr>';
 								}
 							?>

@@ -13,14 +13,14 @@ $(document).ready(function(){
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<h4 class="panel-title">
-				<b>Administración de Usuarios</b>
+				<b>Administración de usuarios</b>
 			</h4>
 		</div>
 		<div class="panel-body">
 			<div>
 				<center>
 					<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal_usuario">
-						Nuevo Usuario
+						Nuevo usuario
 					</button>
 				</center>
 			</div>
@@ -32,7 +32,7 @@ $(document).ready(function(){
 							<tr>
 								<th>Usuario</th>
 								<th>Nombre</th>
-								<th>Telefono</th>
+								<th>Teléfono</th>
 								<th>Correo</th>
 								<th>Departamento</th>
 								<th>Editar</th>
@@ -41,10 +41,9 @@ $(document).ready(function(){
 						</thead>
 						<tbody id="tbody_user">
 							<?php
-							foreach ($usuarios as $value)
-							{
+							foreach ($usuarios as $value){
 								echo '<tr id="tr'.$value['id_usuario'].'">';
-								echo '<td> clave </td>';
+								echo '<td>1601'.$value['id_usuario'].'</td>';
 								echo '<td>'.$value['nombre'].'</td>';
 								echo '<td>'.$value['telefono'].'</td>';
 								echo '<td>'.$value['correo'].'</td>';

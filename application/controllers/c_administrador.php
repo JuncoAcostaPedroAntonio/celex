@@ -5,6 +5,14 @@ class C_administrador extends CI_Controller {
     public function __construct(){
 		parent::__construct();
 			$this->load->model('m_administrador','',TRUE);
+		
+		if($this->session->userdata('login') == FALSE){
+			redirect('general/index');
+		}
+		$d =$this->session->userdata('id_depto');
+		if(!($d == 6)){
+			redirect('c_login/inicio');
+		}
 	}
 	
 	public function inicio()
@@ -24,6 +32,7 @@ class C_administrador extends CI_Controller {
 			$lista_depto[$key]['id_depto'] = $value['id_departamento'];
 			$lista_depto[$key]['departamento'] = $value['nombre_departamento'];
 		}
+		
 		$this->load->view('generales/encabezado');
 		$this->load->view('administrador/admin_ventanas');
 		$this->load->view('administrador/usuarios',array('usuarios'=>$usuarios, 'departamentos'=>$lista_depto));
@@ -33,7 +42,6 @@ class C_administrador extends CI_Controller {
 	}
 	
 	public function eliminar_user(){
-		
 		$post = $this->input->post();
 		$id = $post['id'];
 		$correo = $post['name'];

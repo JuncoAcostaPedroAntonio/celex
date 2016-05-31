@@ -8,30 +8,30 @@
 	<div class="container">
 		<div class="panel panel-default">
 			<div class="panel panel-heading">
-				<b>Registrar Nuevo Estudiante</b>
+				<b>Registrar nuevo alumno</b>
 			</div>
 			<div class="panel-body">
-				<form id="nuevo_estud" accept-charset="utf-8" novalidate="novalidate">
+				<form id="nuevo_estud" accept-charset="utf-8">
 					<div class="row">
 						<div class="col-md-6">
 							<div class="input-group">
-								<span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
-								<input type="text" class="form-control" placeholder="Nombre(s)  -  Apellido Paterno  -  Apellido Materno">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+								<input type="text" class="form-control" id="i_nombre" placeholder="Nombre(s)  -  Apellido paterno  -  Apellido materno" required autofocus>
 							</div>
 						</div>
 						<div class="col-md-3">
 							<div class="input-group">
-								<span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-calendar"></i></span>
-								<input type="date" class="form-control" max="2005-12-31" placeholder="Fecha Nacimiento">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+								<input type="date" class="form-control" id="i_fecha" max="2005-12-31" placeholder="Fecha nacimiento" required autofocus>
 							</div>
 						</div>
 						<div class="col-md-3">
 							<div class="input-group">
-								<span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
-								<select class="form-control">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+								<select id="i_sexo" class="form-control" required autofocus>
 									<option value="0">Sexo</option>
-									<option value="F">Femenino</option>
-									<option value="M">Masculino</option>
+									<option value="1">Femenino</option>
+									<option value="2">Masculino</option>
 								</select>
 							</div>
 						</div>
@@ -39,78 +39,99 @@
 					<div class="row">
 						<div class="col-md-4">
 							<div class="input-group">
-								<span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
-								<input type="text" class="form-control" placeholder="RFC">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+								<input type="text" class="form-control" id="i_rfc" placeholder="RFC" required autofocus>
 							</div>
 						</div>
 						<div class="col-md-4">
 							<div class="input-group">
-								<span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-phone"></i></span>
-								<input type="text" class="form-control" placeholder="Telefono">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+								<input type="text" class="form-control" id="i_telefono" placeholder="Teléfono" maxlength="10" minlength="10" required autofocus>
 							</div>
 						</div>
 						<div class="col-md-4">
 							<div class="input-group">
-								<span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
-								<input type="varchar" class="form-control" placeholder="Email">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+								<input type="varchar" class="form-control" id="i_correo" placeholder="Email" required autofocus>
 							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-4">
 							<div class="input-group">
-								<span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
-								<input type="text" class="form-control" placeholder="Ultimo Grado De Estudios">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+								<input type="text" class="form-control" id="i_ultest" placeholder="Último grado de estudios" required autofocus>
 							</div>
 						</div>
 						<div class="col-md-4">
 							<div class="input-group">
-								<span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
-								<input type="text" class="form-control" placeholder="Institucion De Egreso">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+								<input type="text" class="form-control" id="i_instegre" placeholder="Institución de egreso" required autofocus>
 							</div>
 						</div>
 						<div class="col-md-4">
 							<div class="input-group">
-								<span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
-								<input type="text" class="form-control" placeholder="Anio de Egreso">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+								<input type="text" class="form-control" id="i_anioegreso" placeholder="Año de egreso" required autofocus>
 							</div>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-6">
 							<div class="input-group">
-								<span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
-								<input type="text" class="form-control" placeholder="Como se Entero">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+								<input type="text" class="form-control" id="i_entero" placeholder="¿Cómo se enteró del curso?" required autofocus>
 							</div>
 						</div>
 						<div class="col-md-3">
 							<div class="input-group">
-								<span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
-								<input type="varchar" class="form-control" placeholder="Inversion">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-usd"></i></span>
+								<input type="text" class="form-control" id="i_inversion" placeholder="Inversión" required autofocus>
 							</div>
 						</div>
 						<div class="col-md-3">
 							<div class="input-group">
-								<span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
-								<select class="form-control">
-									<option value="0">Grupo</option>
-									<option value="1A">Ingles 1A</option>
-									<option value="2A">Ingles 2A</option>
-									<option value="1B">Ingles 1B</option>
-									<option value="2B">Ingles 2B</option>
-									<option value="1C">Ingles 1C</option>
-									<option value="2C">Ingles 2C</option>
+								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+								<select class="form-control" id="s_grupo" onchange="mostrar_info_grupo_insc()" required autofocus>
+									<option value="0">Seleccione el grupo</option>
+										<?php 
+											foreach ($l_grupos as $value) {
+												echo "<option value=".$value['id'].">".$value['nombre']."</option>";
+											}
+										?>
 								</select>
 							</div>
 						</div>
 					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+								<input type="text" class="form-control" id="g_modulo" placeholder="Módulo" disabled>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+								<input type="text" class="form-control" id="g_nivel" placeholder="Nivel" disabled>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+								<input type="text" class="form-control" id="g_horario" placeholder="Horario" disabled>
+							</div>
+						</div>
+					</div>
+					
+					
 					<hr>
 					<div class="row">
 						<div class="col-md-2 col-md-offset-4">
-							<button type="button" name="registar" class="btn btn-lg btn-primary btn-block">Guardar</button>
+							<button type="button" class="btn btn-lg btn-primary btn-block insc_alumno">Guardar</button>
 						</div>
 						<div class="col-md-2">
-							<button type="reset" class="btn btn-lg btn-primary btn-block">Limpiar</button>
+							<button type="reset" class="btn btn-lg btn-primary btn-block limpiar">Limpiar</button>
 						</div>
 					</div>
 				</form>

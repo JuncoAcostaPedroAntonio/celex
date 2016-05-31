@@ -9,20 +9,18 @@ class M_administrador extends CI_Model {
     public function tabla_usuarios()
 	{
 		$this->db->select('id_usuario, nombre_usuario, correo, telefono, nombre_departamento');
-		$this->db->from('V_Usuarios');
+		$this->db->from('v_usuario');
 		$consulta = $this->db->get();
 		return $consulta->result_array();
 	}
 
     public function eliminar($id,$correo){
-        return $id;
-        /*
         $SQL = ("DELETE FROM Usuarios WHERE id_usuario = '$id' AND correo = '$correo'");
         if($this->db->query($SQL)){
             return $id;
         }else{
             return FALSE;
-        }*/
+        }
     }
     
     public function registrar_usuario($a){
@@ -38,7 +36,7 @@ class M_administrador extends CI_Model {
         $SQL = ("Select id_departamento, nombre_departamento FROM Departamento");
         $consulta = $this->db->query($SQL);
         return $consulta->result_array();
-    }
+    }   
     
     public function consulta_edit($id, $correo){
 		$this->db->select('id_usuario,nombre_usuario,correo,telefono,contrasena,id_departamento');

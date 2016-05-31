@@ -8,18 +8,12 @@ class M_login extends CI_Model {
 
 	public function validar($correo, $contrasena)
 	{
-		$this->db->select('Nombre_Usuario');
-		$this->db->from('Usuarios');
-		$this->db->where('correo',$correo);
-		$this->db->where('contrasena',$contrasena);
-		$respuesta = $this->db->get();
+		$SQL = ("SELECT id_usuario, nombre_usuario, nombre_departamento, id_departamento FROM v_usuario WHERE correo = '".$correo."' AND contrasena = '".$contrasena."';");
+		$respuesta = $this->db->query($SQL);
 		if ($respuesta->num_rows()>0) {
-			return '1';
-		}else{
-			return '0';
-		}
+				return $respuesta->result_array();
+			}else{
+				return '0';
+			}
 	}
-
-
-
 }

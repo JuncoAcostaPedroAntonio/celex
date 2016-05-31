@@ -2,7 +2,7 @@
 	<b>
 		<br><br>
 		<center>
-		Este modulo esta en construccion.<br>
+		Este módulo esta en construcción.<br>
 		Disculpe las molestias.
 		</center>
 	</b>

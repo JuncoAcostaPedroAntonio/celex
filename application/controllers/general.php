@@ -5,6 +5,7 @@ class General extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 			$this->load->model('m_login','',TRUE);
+		$this->session->sess_destroy();
 	}
 
 	public function index()
@@ -12,17 +13,8 @@ class General extends CI_Controller {
 		$this->load->view('login');
 	}
 
-	function insertar(){
-		$this->load->view('generales/encabezado');
-		$this->load->view('interfaces/inser_estud');
-		$this->load->view('generales/footer');
+	public function prueba(){
+		$respuesta = $this->m_login->prueba();
+		var_dump($respuesta);
 	}
-	
-	function editar_a(){
-		$this->load->view('generales/encabezado');
-		$this->load->view('administrador/editar_alumno');
-		$this->load->view('generales/footer');
-		
-	}
-	
 }

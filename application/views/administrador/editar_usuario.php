@@ -3,16 +3,16 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title text-center" id="titulo_modal">Modificar Usuario</h4>
+                    <h4 class="modal-title text-center" id="titulo_modal">Modificar usuario</h4>
                 </div>
                 <div class="modal-body">
                     <form id="form_usuario" name="form_us" class="form-horizontal text-right">
                         <div class="form-group">
                             <div class="col-sm-4">
-                                <label for="e_usuario" class="control-label">Nombre Usuario:</label>
+                                <label for="e_usuario" class="control-label">Nombre usuario:</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" id="e_usuario" class="form-control" placeholder="Nombre de Usario" required autofocus>
+                                <input type="text" id="e_usuario" class="form-control" placeholder="Nombre de usario" required autofocus>
                             </div>
                         </div>
                         <div class="form-group">
@@ -20,15 +20,15 @@
                                 <label for="e_email" class="control-label">Correo:</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="email" id="e_email" class="form-control" placeholder="ejemplo@domino.com">
+                                <input type="email" id="e_email" class="form-control" placeholder="Ejemplo@domino.com">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-4">
-                                <label for="e_telefono" class="control-label">Telefono:</label>
+                                <label for="e_telefono" class="control-label">Teléfono:</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="phonenumber" id="e_telefono" class="form-control" placeholder="6221252301" maxlength="10" minlength="10">
+                                <input type="number" id="e_telefono" class="form-control" placeholder="6221252301" maxlength="10" minlength="10">
                             </div>
                         </div>
                         <div class="form-group">
@@ -36,7 +36,7 @@
                                 <label for="e_contrasena" class="control-label">Contraseña:</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" id="e_contrasena" class="form-control" placeholder="Contraseña">
+                                <input type="password" id="e_contrasena" class="form-control" placeholder="Contraseña">
                             </div>
                         </div>
                         <div class="form-group">
@@ -55,8 +55,8 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            <button class="btn btn-primary b_editar_user" >Guardar Cambios</button>
-                            <button type="reset" class="btn btn-warning">Restablecer</button>
+                            <button class="btn btn-primary b_editar_user" >Guardar cambios</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
                         </div>
                     </form>
                 </div>

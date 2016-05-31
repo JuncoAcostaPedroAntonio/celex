@@ -13,9 +13,13 @@
 	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	
-	<script type="text/javascript" src="<?php echo base_url();?>alertify/lib/alertify.js"></script>
-	<link rel="stylesheet" href="<?php echo base_url();?>alertify/themes/alertify.core.css" />
-	<link rel="stylesheet" href="<?php echo base_url();?>alertify/themes/alertify.default.css" />
+	<!-- Libreria Sweet Alert2-->
+	<script type="text/javascript" src="<?php echo base_url();?>sweetalert/dist/sweetalert.min.js"></script>
+	<link rel="stylesheet" href="<?php echo base_url();?>sweetalert/dist/sweetalert.css"/>
+
+	<!-- for IE support Sweet Alert2
+	<script src="bower_components/es6-promise-polyfill/promise.min.js"></script>
+	-->
 	<style type="text/css">
 	.encabezado {
 		background: #711D3E;
@@ -47,13 +51,13 @@
 				<div class="col-xs-3 col-md-3 logo-celex">
 					<img src="<?php echo base_url();?>images/ipn-logo3.jpg" heigth="100%">
 				</div>
-				<div class="col-xs-6 col-md-6 botones">
+				<div class="col-xs-5 col-md-5 botones">
 					
 				</div>
-				<div class="col-xs-2 col-md-2 sesion">
-					<b>Nombre de usuario</b><br>
-					<b>Departamento</b><br>
-					<a class="sc" href="<?php echo base_url()?>general/index"><b>Cerrar sesion</b></a>
+				<div class="col-xs-3 col-md-3 sesion">
+					<b><?php echo $this->session->userdata('nombre')?></b><br>
+					<b><?php echo $this->session->userdata('departamento'); ?></b><br>
+					<a class="sc" href="<?php echo base_url()?>c_login/cerrarsesion"><b>Cerrar sesión</b></a>
 				</div>
 				<div class="col-xs-1 col-md-1 imagen_user">
 					<img src="<?php echo base_url();?>images/user_img.JPG" width="100%">
